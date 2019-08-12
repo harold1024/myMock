@@ -34,10 +34,14 @@ data1 = [
     {name: 'aaa',age: 'bbb'},
     {name: 'ccc',age: 'ddd'}
 ]
-console.log('0987')
     
 
-Mock.mock('/index/info', 'post', data) // 根据数据模板生成模拟数据
-Mock.mock('/index/data', 'post', data1) // 根据数据模板生成模拟数据
-Mock.mock('/message/index', 'post', size) // 根据数据模板生成模拟数据
+let info = Mock.mock('/index/info', 'post', data) // 根据数据模板生成模拟数据
+let dataaa = Mock.mock('/index/data', 'post', data1) // 根据数据模板生成模拟数据
+let message = Mock.mock('/message/index', 'post', size) // 根据数据模板生成模拟数据
 
+export default {
+	info,
+	dataaa,
+	message
+}

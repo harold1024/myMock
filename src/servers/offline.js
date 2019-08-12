@@ -6,7 +6,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
-    console.log(config)
     return config;
 }, function (error) {
     return Promise.reject(error);
@@ -14,7 +13,6 @@ axios.interceptors.request.use(function (config) {
 
 // 响应拦截器
 axios.interceptors.response.use(function (response) {
-    console.log(response)
     return response;
 }, function (error) {
     return Promise.reject(error);
@@ -33,14 +31,18 @@ export function fetch(url, params) {
     })
 }
 
-// let base = ''
-let base = 'http://api.0328e.com/index.php/index'
+let base = ''
+// let base = 'http://api.0328e.com/index.php/index'
+let basess = '/api/m/43590459.aspx'
+// https://qywx.wjx.cn/wjx/join/completemobile2.aspx?activity=43590459&joinactivity=103037371375&jidx=841&sa=20&ea=25&ge=1&educ=3
+export const boyu = params => { return axios.post(`${basess}`, params).then(res => res.data) }
 export const getInfo = params => { return axios.post(`${base}/index/info`, params).then(res => res.data) }
 export const Message = params => { return axios.post(`${base}/message/index`, params).then(res => res.data) }
 
 export default {
     getInfo,
     Message,
+    boyu
 }
 // export default {
 //     mockdata(url, params) {

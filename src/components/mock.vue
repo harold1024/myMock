@@ -6,7 +6,7 @@
 
 <script>
 // import api from './../servers';
-import {getInfo, Message} from '../servers/offline';
+import {getInfo, Message, boyu} from '../servers/offline';
 // import {getInfo, Message} from '../servers/online';
 export default {
     name: 'Mock',
@@ -17,9 +17,11 @@ export default {
     },
     methods: {
         getInfoData(){
-            console.log(123)
+            let params = {
+
+            }
             getInfo().then(res => {
-                console.log(res)
+                // console.log(res)
                 let {code, msg} = res;
                 // if(code != 200) {
                 //     this.$message({
@@ -41,9 +43,13 @@ export default {
             //         this.dataShow = res.data;
             //     })
             Message().then(res => {
-                console.log(res)
+                // console.log(res)
                 let {code, msg} = res;
             })
+            // boyu().then(res => {
+            //     console.log(res)
+            //     let {code, msg} = res;
+            // })
         }
 
     },
